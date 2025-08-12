@@ -19,11 +19,34 @@
 <body>
   <main class="wrap">
     <section class="card">
-      <!-- Put your PNG/SVG in the repo and update the src below -->
-      <img class="logo" src="./tekits_original_transparent.png" alt="Tekits logo" />
+      <img class="logo" id="logo" src="" alt="Tekits logo" />
       <footer>© <span id="y"></span> Tekits</footer>
     </section>
   </main>
-  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+  <script>
+    // Array of image file names
+    const images = [
+      "tekits_black.png",
+      "tekits_blue.png",
+      "tekits_charcoal_sharp.png",
+      "tekits_green.png",
+      "tekits_orange.png",
+      "tekits_original_transparent.png",
+      "tekits_original_transparent_on_black.png",
+      "tekits_original_transparent_on_white.png",
+      "tekits_purple.png",
+      "tekits_red.png",
+      "tekits_teal.png"
+    ];
+
+    // Pick a random image
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+
+    // Set image source
+    document.getElementById("logo").src = `./${randomImage}`;
+
+    // Set year in footer
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
