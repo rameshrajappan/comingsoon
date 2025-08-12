@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tekits — Redefining Technology for you</title>
+  <meta name="description" content="Redefining Technology for you" />
+  <style>
+    :root { --fg:#0f172a; --bg:#fff; --cta:#2563eb; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial; color:var(--fg); background:var(--bg); }
+    .wrap { min-height:100svh; display:grid; place-items:center; padding:40px 16px; }
+    .card { text-align:center; max-width:880px; width:100%; }
+    .logo { max-width:520px; width:100%; height:auto; margin:0 auto 20px; display:block; }
+    p  { font-size:clamp(16px,2.6vw,22px); margin:0 0 24px; opacity:.9; }
+    footer { margin-top:28px; font-size:14px; opacity:.7; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <!-- Put your PNG/SVG in the repo and update the src below -->
+      <img class="logo" src="./tekits_logo.png" alt="Tekits logo" />
+      <footer>© <span id="y"></span> Tekits</footer>
+    </section>
+  </main>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
