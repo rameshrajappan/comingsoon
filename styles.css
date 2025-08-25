@@ -1,0 +1,87 @@
+  body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #232526 0%, #363c47 100%);
+      background-image:
+        radial-gradient(circle at 75% 25%, #58caff 0%, #232526 60%),
+        linear-gradient(135deg, #232526 0%, #363c47 100%);
+      color: #e7f0fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(53, 57, 65, 0.85);
+      padding: 3rem 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 0 40px #58caff44;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .logo {
+      max-width: 180px;
+      margin: 0 auto 1.5rem;
+    }
+
+    /* ALL CAPS HEADLINE WITH OSWALD */
+    .headline {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 2.8rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #58caff;
+      text-shadow: 0 0 18px #58caff88, 0 0 2px #fff;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #c9ceed;
+      margin-bottom: 1.5rem;
+    }
+
+    .future {
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #8693d2, #c3ceda);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 1px;
+      margin-bottom: 2rem;
+    }
+
+    .promise {
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.4;
+    }
+
+    .dots {
+      display: inline-block;
+      font-size: 1.5rem;
+      color: #dffaff;
+      letter-spacing: 2px;
+    }
+
+    .service-chip {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #b3cee2;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 600px) {
+      .headline { font-size: 2.2rem; }
+      .subtitle { font-size: 0.95rem; }
+    }
