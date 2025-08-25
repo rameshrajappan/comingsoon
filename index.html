@@ -1,51 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tekits — Redefining Technology for you</title>
-  <meta name="description" content="Redefining Technology for you" />
-  <style>
-    :root { --fg:#0f172a; --bg:#fff; --cta:#2563eb; }
-    * { box-sizing:border-box; }
-    body { margin:0; font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial; color:var(--fg); background:var(--bg); }
-    .wrap { min-height:100svh; display:grid; place-items:center; padding:40px 16px; }
-    .card { text-align:center; max-width:880px; width:100%; }
-    .logo { max-width:520px; width:100%; height:auto; margin:0 auto 20px; display:block; }
-    p  { font-size:clamp(16px,2.6vw,22px); margin:0 0 24px; opacity:.9; }
-    footer { margin-top:28px; font-size:14px; opacity:.7; }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tekits – Coming Soon</title>
+
+  <!-- Google Font: Oswald -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+  <link hrer="styles.css" rel="stylesheet"/>
 </head>
+
 <body>
-  <main class="wrap">
-    <section class="card">
-      <img class="logo" id="logo" src="./tekits_black.png" alt="Tekits logo" />
-      <footer>© <span id="y">2025</span> Tekits</footer>
-    </section>
-  </main>
+  <div class="container">
+    <img src="tekits_logo_clean.png" alt="Tekits Logo" class="logo">
+    <div class="headline">Premium Electronics</div>
+    <div class="subtitle">Quality · Service · Technology</div>
+    <div class="future">Future Is Arriving Soon</div>
+    <div class="promise">
+      We are dreaming of a smarter, better tomorrow.<br>
+      Our world-class electronics store wakes up shortly.<span class="dots">...</span>
+    </div>
+    <div class="service-chip">Service You Can Trust | Quality You Deserve</div>
+  </div>
+
   <script>
-    // Array of image file names
-    const images = [
-      "tekits_black.png",
-      "tekits_blue.png",
-      "tekits_charcoal_sharp.png",
-      "tekits_green.png",
-      "tekits_orange.png",
-      "tekits_original_transparent.png",
-      "tekits_original_transparent_on_white.png",
-      "tekits_purple.png",
-      "tekits_red.png",
-      "tekits_teal.png"
-    ];
-
-    // Pick a random image
-    const randomImage = images[Math.floor(Math.random() * images.length)];
-
-    // Set image source
-    document.getElementById("logo").src = `./${randomImage}`;
-
-    // Set year in footer
-    document.getElementById("y").textContent = new Date().getFullYear();
+    const dotsElement = document.querySelector('.dots');
+    let count = 0;
+    setInterval(() => {
+      count = (count + 1) % 4;
+      dotsElement.textContent = '.'.repeat(count);
+    }, 500);
   </script>
 </body>
 </html>
