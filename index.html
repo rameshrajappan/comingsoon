@@ -1,19 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tekits – Coming Soon</title>
-  <!-- Google Font: Oswald -->
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
-  <link href="styles.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekits - Redefining Technology for You</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <img src="tekits_logo_clean.png" alt="Tekits Logo" class="logo">
-    <div class="subtitle">Redefining Technology for you</div>
-    <div class="service-chip">Quality · Value · Service</div>
-    <div class="future">Arriving Soon</div>
-  </div>
+    <!-- Loading Animation -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-logo">T</div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-background">
+            <div class="particles" id="particles"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <div class="logo-placeholder">
+                        <img src="tekits_logo_clean.png" alt="Tekits Logo" class="logo">
+                    </div>
+                </div>
+                <p class="hero-subtitle fade-in delay-1">Redefining Technology for You</p>
+                <p class="hero-tagline fade-in delay-2">Quality · Value · Service · Innovation</p>
+                <div class="coming-soon-badge fade-in delay-3">
+                    <span class="badge-text">Coming Soon</span>
+                    <div class="badge-pulse"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Motto Section -->
+    <section id="motto" class="motto">
+        <div class="container">
+            <div class="motto-content card fade-in-up">
+                <blockquote class="motto-quote">
+                    "Empowering Your Passion with Quality and Innovation"
+                </blockquote>
+                <p class="motto-description">
+                    At Tekits, we are committed to delivering exceptional technology solutions that enhance your digital experience. Our mission is to provide innovative, high-quality peripherals that combine performance, style, and value.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title fade-in-up">Welcome to Tekits</h2>
+                <div class="about-text fade-in-up delay-1">
+                    <p>
+                        Your premier destination for cutting-edge technology peripherals. We specialize in mechanical keyboards, precision mice, and premium desk accessories that elevate your workspace and gaming experience.
+                    </p>
+                    <p>
+                        Every product in our collection is carefully selected for its exceptional quality, innovative design, and outstanding performance. We believe that the right tools can transform how you work, create, and play.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title fade-in-up">What Makes Us Different?</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in-up delay-1">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Innovative Products</h3>
+                    <p class="feature-description">Featuring the latest technologies in gaming and office peripherals</p>
+                </div>
+                <div class="feature-card fade-in-up delay-2">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Ergonomic Designs</h3>
+                    <p class="feature-description">Crafted for comfort during extended use</p>
+                </div>
+                <div class="feature-card fade-in-up delay-3">
+                    <div class="feature-icon">💎</div>
+                    <h3 class="feature-title">Durability & Reliability</h3>
+                    <p class="feature-description">Built to last with premium materials and quality control</p>
+                </div>
+                <div class="feature-card fade-in-up delay-4">
+                    <div class="feature-icon">📡</div>
+                    <h3 class="feature-title">Flexible Connectivity</h3>
+                    <p class="feature-description">Wireless, Bluetooth, and wired options to fit your lifestyle</p>
+                </div>
+                <div class="feature-card fade-in-up delay-5">
+                    <div class="feature-icon">⚙️</div>
+                    <h3 class="feature-title">Customizable Features</h3>
+                    <p class="feature-description">Tailored settings and functionality to match your preferences</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coming Soon Section -->
+    <section id="coming-soon" class="coming-soon">
+        <div class="container">
+            <div class="coming-soon-content">
+                <h2 class="coming-soon-title fade-in-up">Something Amazing is Coming</h2>
+                <p class="coming-soon-text fade-in-up delay-1">
+                    We're putting the finishing touches on our revolutionary product lineup. Get ready for exclusive launches, special offers, and the latest in tech innovation.
+                </p>
+                <div class="countdown-container fade-in-up delay-2">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Seconds</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title fade-in-up">Get in Touch</h2>
+                <div class="contact-info fade-in-up delay-1">
+                    <p class="contact-text">Ready to elevate your tech experience? We'd love to hear from you.</p>
+                    <div class="contact-emails">
+                        <a href="mailto:contact@tekits.com" class="contact-email">contact@tekits.com</a>
+                        <a href="mailto:info@tekits.com" class="contact-email">info@tekits.com</a>
+                    </div>
+                    <p class="support-message">Our support team is here to help you find the perfect tech solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">Tekits | Your Trusted Tech Partner in Kochi</p>
+                <div class="footer-social">
+                    <div class="social-icons">
+                        <span class="social-icon">📧</span>
+                        <span class="social-icon">🌐</span>
+                        <span class="social-icon">💼</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>
