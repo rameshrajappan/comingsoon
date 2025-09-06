@@ -890,6 +890,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 2rem;
 }
 
+.hero-logo .logo {
+  max-width: 400px;
+  height: auto;
+}
+
 .logo-placeholder {
   width: 120px;
   height: 120px;
