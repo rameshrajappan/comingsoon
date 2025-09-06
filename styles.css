@@ -738,19 +738,24 @@ select.form-control {
 }
 
 /* END PERPLEXITY DESIGN SYSTEM */
-/* Custom properties for Tekits theme */
+/* Custom properties for Tekits strategic brand colors */
 :root {
-  --tekits-primary: #58caff;
-  --tekits-primary-rgb: 88, 202, 255;
-  --tekits-dark: #0a0a0a;
-  --tekits-dark-light: #1a1a1a;
-  --tekits-dark-lighter: #2a2a2a;
-  --tekits-text-light: #e8e8e8;
-  --tekits-text-muted: #a0a0a0;
-  --tekits-gradient: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-  --tekits-card-gradient: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
-  --tekits-glow: 0 0 20px rgba(88, 202, 255, 0.3);
-  --tekits-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  --tekits-primary: #2563EB;
+  --tekits-primary-rgb: 37, 99, 235;
+  --tekits-white: #FFFFFF;
+  --tekits-white-rgb: 255, 255, 255;
+  --tekits-accent-gray: #64748B;
+  --tekits-accent-gray-rgb: 100, 116, 139;
+  --tekits-success: #10B981;
+  --tekits-success-rgb: 16, 185, 129;
+  --tekits-background: #F8FAFC;
+  --tekits-text: #1E293B;
+  --tekits-text-rgb: 30, 41, 59;
+  --tekits-gradient: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 50%, #CBD5E1 100%);
+  --tekits-card-gradient: linear-gradient(145deg, #FFFFFF 0%, #F1F5F9 100%);
+  --tekits-primary-glow: 0 0 30px rgba(37, 99, 235, 0.3);
+  --tekits-shadow: 0 10px 30px rgba(30, 41, 59, 0.1);
+  --tekits-logo-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   --tekits-animation-speed: 0.6s;
 }
 
@@ -768,8 +773,8 @@ html {
 
 body {
   font-family: 'Inter', var(--font-family-base);
-  background: var(--tekits-gradient);
-  color: var(--tekits-text-light);
+  background: var(--tekits-background);
+  color: var(--tekits-text);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -781,7 +786,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: var(--tekits-dark);
+  background: var(--tekits-white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -800,24 +805,28 @@ body {
 }
 
 .loader-logo {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(45deg, var(--tekits-primary), #4fb3d9);
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Oswald', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--tekits-dark);
   margin: 0 auto 1rem;
+  background: var(--tekits-white);
+  box-shadow: var(--tekits-logo-shadow);
   animation: pulse 2s infinite;
+}
+
+.loader-logo-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
 .loader-text {
   font-size: 1.2rem;
-  color: var(--tekits-text-muted);
+  color: var(--tekits-accent-gray);
   animation: fadeInOut 2s infinite;
 }
 
@@ -840,10 +849,20 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 3rem;
   text-align: center;
   margin-bottom: 3rem;
-  background: linear-gradient(45deg, var(--tekits-primary), #4fb3d9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--tekits-primary);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--tekits-primary), var(--tekits-success));
+  border-radius: 2px;
 }
 
 /* Hero Section */
@@ -854,6 +873,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   position: relative;
   overflow: hidden;
+  background: var(--tekits-gradient);
 }
 
 .hero-background {
@@ -876,7 +896,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   background: var(--tekits-primary);
   border-radius: 50%;
-  opacity: 0.6;
+  opacity: 0.4;
   animation: float 6s ease-in-out infinite;
 }
 
@@ -890,64 +910,78 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 2rem;
 }
 
-.hero-logo .logo {
-  max-width: 400px;
-  height: auto;
-}
-
-.logo-placeholder {
-  width: 120px;
-  height: 120px;
-  background: linear-gradient(45deg, var(--tekits-primary), #4fb3d9);
-  border-radius: 50%;
-  display: flex;
+.logo-container {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
-  box-shadow: var(--tekits-glow);
+  background: var(--tekits-white);
+  border-radius: 50%;
+  padding: 20px;
+  box-shadow: var(--tekits-logo-shadow);
   animation: logoGlow 3s ease-in-out infinite;
+  position: relative;
 }
 
-.logo-text {
-  font-family: 'Oswald', sans-serif;
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--tekits-dark);
+.logo-container::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, var(--tekits-primary), var(--tekits-success));
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.3;
+  animation: rotate 8s linear infinite;
+}
+
+.tekits-logo {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 50%;
+  transition: transform var(--tekits-animation-speed) ease;
+}
+
+.tekits-logo:hover {
+  transform: scale(1.05);
 }
 
 .hero-title {
   font-size: 5rem;
   margin-bottom: 1rem;
-  background: linear-gradient(45deg, var(--tekits-primary), #4fb3d9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--tekits-primary);
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(var(--tekits-text-rgb), 0.1);
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: var(--tekits-text-light);
-  font-weight: 300;
+  color: var(--tekits-text);
+  font-weight: 400;
 }
 
 .hero-tagline {
   font-size: 1.1rem;
-  color: var(--tekits-text-muted);
+  color: var(--tekits-accent-gray);
   margin-bottom: 2rem;
   letter-spacing: 0.1em;
+  font-weight: 500;
 }
 
 .coming-soon-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(88, 202, 255, 0.1);
-  border: 1px solid var(--tekits-primary);
+  background: rgba(var(--tekits-primary-rgb), 0.1);
+  border: 2px solid var(--tekits-primary);
   padding: 0.75rem 1.5rem;
   border-radius: 50px;
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(10px);
 }
 
 .badge-text {
@@ -976,6 +1010,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 50%;
   transform: translateX(-50%);
   animation: bounce 2s infinite;
+  cursor: pointer;
 }
 
 .scroll-arrow {
@@ -1000,7 +1035,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Motto Section */
 .motto {
   padding: 6rem 0;
-  background: var(--tekits-dark-light);
+  background: var(--tekits-white);
 }
 
 .motto-content {
@@ -1008,22 +1043,55 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--tekits-card-gradient);
   padding: 3rem;
   border-radius: 20px;
-  border: 1px solid rgba(88, 202, 255, 0.2);
+  border: 1px solid rgba(var(--tekits-primary-rgb), 0.1);
   box-shadow: var(--tekits-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.motto-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(var(--tekits-primary-rgb), 0.05), transparent);
+  animation: shimmer 3s ease-in-out infinite;
 }
 
 .motto-quote {
   font-size: 2.5rem;
   font-family: 'Oswald', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--tekits-primary);
   margin-bottom: 2rem;
   font-style: italic;
+  position: relative;
+}
+
+.motto-quote::before,
+.motto-quote::after {
+  content: '"';
+  font-size: 3rem;
+  color: var(--tekits-success);
+  position: absolute;
+  font-style: normal;
+}
+
+.motto-quote::before {
+  left: -2rem;
+  top: -0.5rem;
+}
+
+.motto-quote::after {
+  right: -2rem;
+  bottom: -1rem;
 }
 
 .motto-description {
   font-size: 1.2rem;
-  color: var(--tekits-text-muted);
+  color: var(--tekits-accent-gray);
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.8;
@@ -1032,6 +1100,7 @@ h1, h2, h3, h4, h5, h6 {
 /* About Section */
 .about {
   padding: 6rem 0;
+  background: var(--tekits-background);
 }
 
 .about-content {
@@ -1042,7 +1111,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .about-text p {
   font-size: 1.2rem;
-  color: var(--tekits-text-light);
+  color: var(--tekits-text);
   margin-bottom: 2rem;
   line-height: 1.8;
 }
@@ -1050,7 +1119,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Features Section */
 .features {
   padding: 6rem 0;
-  background: var(--tekits-dark-light);
+  background: var(--tekits-white);
 }
 
 .features-grid {
@@ -1064,7 +1133,7 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--tekits-card-gradient);
   padding: 2.5rem;
   border-radius: 20px;
-  border: 1px solid rgba(88, 202, 255, 0.2);
+  border: 1px solid rgba(var(--tekits-primary-rgb), 0.1);
   text-align: center;
   transition: all var(--tekits-animation-speed) ease;
   box-shadow: var(--tekits-shadow);
@@ -1079,7 +1148,7 @@ h1, h2, h3, h4, h5, h6 {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(45deg, transparent, rgba(88, 202, 255, 0.1), transparent);
+  background: linear-gradient(45deg, transparent, rgba(var(--tekits-primary-rgb), 0.1), transparent);
   transform: rotate(-45deg);
   transition: all 0.6s ease;
   opacity: 0;
@@ -1092,7 +1161,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .feature-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 40px rgba(var(--tekits-text-rgb), 0.15);
   border-color: var(--tekits-primary);
 }
 
@@ -1110,7 +1179,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .feature-description {
-  color: var(--tekits-text-muted);
+  color: var(--tekits-accent-gray);
   line-height: 1.6;
 }
 
@@ -1118,20 +1187,18 @@ h1, h2, h3, h4, h5, h6 {
 .coming-soon {
   padding: 6rem 0;
   text-align: center;
+  background: var(--tekits-background);
 }
 
 .coming-soon-title {
   font-size: 3.5rem;
   margin-bottom: 2rem;
-  background: linear-gradient(45deg, var(--tekits-primary), #4fb3d9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--tekits-primary);
 }
 
 .coming-soon-text {
   font-size: 1.3rem;
-  color: var(--tekits-text-muted);
+  color: var(--tekits-accent-gray);
   max-width: 700px;
   margin: 0 auto 3rem;
   line-height: 1.8;
@@ -1148,9 +1215,14 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--tekits-card-gradient);
   padding: 2rem 1.5rem;
   border-radius: 15px;
-  border: 1px solid rgba(88, 202, 255, 0.2);
+  border: 1px solid rgba(var(--tekits-primary-rgb), 0.1);
   min-width: 100px;
   box-shadow: var(--tekits-shadow);
+  transition: transform 0.3s ease;
+}
+
+.countdown-item:hover {
+  transform: scale(1.05);
 }
 
 .countdown-number {
@@ -1162,15 +1234,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .countdown-label {
   font-size: 0.9rem;
-  color: var(--tekits-text-muted);
+  color: var(--tekits-accent-gray);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  font-weight: 500;
 }
 
 /* Contact Section */
 .contact {
   padding: 6rem 0;
-  background: var(--tekits-dark-light);
+  background: var(--tekits-white);
 }
 
 .contact-content {
@@ -1181,7 +1254,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .contact-text {
   font-size: 1.3rem;
-  color: var(--tekits-text-light);
+  color: var(--tekits-text);
   margin-bottom: 2rem;
 }
 
@@ -1199,28 +1272,45 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   padding: 1rem 2rem;
   border-radius: 50px;
-  border: 1px solid rgba(88, 202, 255, 0.2);
+  border: 2px solid var(--tekits-primary);
   transition: all var(--tekits-animation-speed) ease;
-  font-weight: 500;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-email::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--tekits-primary);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.contact-email:hover::before {
+  left: 0;
 }
 
 .contact-email:hover {
-  background: var(--tekits-primary);
-  color: var(--tekits-dark);
+  color: var(--tekits-white);
   transform: translateY(-2px);
-  box-shadow: var(--tekits-glow);
+  box-shadow: var(--tekits-primary-glow);
 }
 
 .support-message {
-  color: var(--tekits-text-muted);
+  color: var(--tekits-accent-gray);
   font-size: 1.1rem;
 }
 
 /* Footer */
 .footer {
   padding: 2rem 0;
-  background: var(--tekits-dark);
-  border-top: 1px solid rgba(88, 202, 255, 0.2);
+  background: var(--tekits-text);
+  color: var(--tekits-white);
 }
 
 .footer-content {
@@ -1232,7 +1322,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-text {
-  color: var(--tekits-text-muted);
+  color: rgba(var(--tekits-white-rgb), 0.8);
   font-size: 0.9rem;
 }
 
@@ -1245,6 +1335,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.5rem;
   opacity: 0.7;
   transition: opacity 0.3s ease;
+  cursor: pointer;
 }
 
 .social-icon:hover {
@@ -1258,8 +1349,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes logoGlow {
-  0%, 100% { box-shadow: 0 0 20px rgba(88, 202, 255, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(88, 202, 255, 0.6); }
+  0%, 100% { box-shadow: var(--tekits-logo-shadow); }
+  50% { box-shadow: var(--tekits-logo-shadow), var(--tekits-primary-glow); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 @keyframes bounce {
@@ -1269,8 +1365,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
-  50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.4; }
+  50% { transform: translateY(-20px) rotate(180deg); opacity: 0.6; }
 }
 
 @keyframes fadeInOut {
@@ -1281,6 +1377,11 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes shine {
   0% { transform: translateX(-100%) translateY(-100%) rotate(-45deg); }
   100% { transform: translateX(100%) translateY(100%) rotate(-45deg); }
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
 
 /* Fade animations */
@@ -1315,6 +1416,11 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 1rem;
   }
   
+  .tekits-logo {
+    width: 120px;
+    height: 120px;
+  }
+  
   .hero-title {
     font-size: 3rem;
   }
@@ -1325,6 +1431,11 @@ h1, h2, h3, h4, h5, h6 {
   
   .motto-quote {
     font-size: 1.8rem;
+  }
+  
+  .motto-quote::before,
+  .motto-quote::after {
+    display: none;
   }
   
   .coming-soon-title {
@@ -1351,17 +1462,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 480px) {
+  .tekits-logo {
+    width: 100px;
+    height: 100px;
+  }
+  
   .hero-title {
     font-size: 2.5rem;
-  }
-  
-  .logo-placeholder {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .logo-text {
-    font-size: 2rem;
   }
   
   .countdown-item {
@@ -1371,5 +1478,9 @@ h1, h2, h3, h4, h5, h6 {
   
   .countdown-number {
     font-size: 2rem;
+  }
+  
+  .logo-container {
+    padding: 15px;
   }
 }
