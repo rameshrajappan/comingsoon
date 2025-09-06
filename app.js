@@ -27,7 +27,7 @@ function initLoader() {
 // Particle System
 function initParticles() {
     const particlesContainer = document.getElementById('particles');
-    const particleCount = 50;
+    const particleCount = 40;
     
     for (let i = 0; i < particleCount; i++) {
         createParticle(particlesContainer);
@@ -39,11 +39,11 @@ function createParticle(container) {
     particle.className = 'particle';
     
     // Random properties
-    const size = Math.random() * 4 + 1;
+    const size = Math.random() * 3 + 1;
     const x = Math.random() * 100;
     const y = Math.random() * 100;
-    const duration = Math.random() * 10 + 5;
-    const delay = Math.random() * 5;
+    const duration = Math.random() * 12 + 8;
+    const delay = Math.random() * 6;
     
     particle.style.width = size + 'px';
     particle.style.height = size + 'px';
@@ -124,7 +124,9 @@ function initCountdown() {
         // Add pulse animation to seconds
         secondsEl.parentElement.style.transform = 'scale(1.05)';
         setTimeout(() => {
-            secondsEl.parentElement.style.transform = 'scale(1)';
+            if (secondsEl.parentElement) {
+                secondsEl.parentElement.style.transform = 'scale(1)';
+            }
         }, 100);
     }
     
@@ -166,7 +168,6 @@ function initScrollIndicator() {
         });
         
         // Hide scroll indicator when user scrolls
-        let scrollTimer = null;
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
             if (scrollY > 100) {
@@ -178,31 +179,46 @@ function initScrollIndicator() {
     }
 }
 
-// Parallax Effect
-function initParallax() {
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('[data-parallax]');
-        
-        parallaxElements.forEach(element => {
-            const speed = element.dataset.parallax;
-            const yPos = -(scrolled * speed);
-            element.style.transform = `translateY(${yPos}px)`;
+// Logo Enhancement Effects
+function initLogoEffects() {
+    const logo = document.querySelector('.tekits-logo');
+    const logoContainer = document.querySelector('.logo-container');
+    
+    if (logo && logoContainer) {
+        // Add enhanced hover effects
+        logoContainer.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.1) rotate(5deg)';
+            this.style.boxShadow = '0 20px 60px rgba(37, 99, 235, 0.4)';
         });
-    });
+        
+        logoContainer.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) rotate(0deg)';
+            this.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.15)';
+        });
+        
+        // Add click effect
+        logoContainer.addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1.1) rotate(5deg)';
+            }, 150);
+        });
+    }
 }
 
 // Card Hover Effects
 function initCardEffects() {
-    const cards = document.querySelectorAll('.feature-card, .card');
+    const cards = document.querySelectorAll('.feature-card, .card, .motto-content');
     
     cards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-10px) scale(1.02)';
+            this.style.boxShadow = '0 25px 50px rgba(30, 41, 59, 0.2)';
         });
         
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0) scale(1)';
+            this.style.boxShadow = '0 10px 30px rgba(30, 41, 59, 0.1)';
         });
     });
 }
@@ -212,114 +228,68 @@ function initEmailEffects() {
     const emailLinks = document.querySelectorAll('.contact-email');
     
     emailLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            // Add a small animation when clicked
+        link.addEventListener('click', function(e) {
+            // Add a pulse animation when clicked
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
-                this.style.transform = 'scale(1)';
+                this.style.transform = 'scale(1) translateY(-2px)';
             }, 150);
         });
-    });
-}
-
-// Typing Animation for Hero Title
-function initTypingAnimation() {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const text = heroTitle.textContent;
-        heroTitle.textContent = '';
-        heroTitle.style.opacity = '1';
         
-        let i = 0;
-        const typeTimer = setInterval(() => {
-            heroTitle.textContent += text.charAt(i);
-            i++;
-            if (i > text.length - 1) {
-                clearInterval(typeTimer);
-            }
-        }, 100);
-    }
-}
-
-// Mouse Trail Effect
-function initMouseTrail() {
-    const trail = [];
-    const trailLength = 10;
-    
-    document.addEventListener('mousemove', (e) => {
-        trail.push({ x: e.clientX, y: e.clientY });
+        // Enhanced hover effects
+        link.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px) scale(1.05)';
+        });
         
-        if (trail.length > trailLength) {
-            trail.shift();
-        }
-        
-        // Update existing trail elements or create new ones
-        trail.forEach((point, index) => {
-            let trailElement = document.getElementById(`trail-${index}`);
-            
-            if (!trailElement) {
-                trailElement = document.createElement('div');
-                trailElement.id = `trail-${index}`;
-                trailElement.style.position = 'fixed';
-                trailElement.style.width = '4px';
-                trailElement.style.height = '4px';
-                trailElement.style.background = 'var(--tekits-primary)';
-                trailElement.style.borderRadius = '50%';
-                trailElement.style.pointerEvents = 'none';
-                trailElement.style.zIndex = '9998';
-                trailElement.style.transition = 'all 0.1s ease';
-                document.body.appendChild(trailElement);
-            }
-            
-            trailElement.style.left = point.x + 'px';
-            trailElement.style.top = point.y + 'px';
-            trailElement.style.opacity = (index + 1) / trailLength * 0.5;
-            trailElement.style.transform = `scale(${(index + 1) / trailLength})`;
+        link.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
         });
     });
 }
 
-// Performance optimization - throttle scroll events
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
+// Parallax Effect for Hero Section
+function initParallax() {
+    window.addEventListener('scroll', throttle(() => {
+        const scrolled = window.pageYOffset;
+        const heroBackground = document.querySelector('.hero-background');
+        const particles = document.querySelector('.particles');
+        
+        if (heroBackground) {
+            const yPos = scrolled * 0.5;
+            heroBackground.style.transform = `translateY(${yPos}px)`;
         }
-    }
+        
+        if (particles) {
+            const yPos = scrolled * 0.3;
+            particles.style.transform = `translateY(${yPos}px)`;
+        }
+    }, 10));
 }
 
-// Navbar scroll effect (if needed in future)
-function initNavbarScroll() {
-    const navbar = document.querySelector('.navbar');
-    if (navbar) {
-        window.addEventListener('scroll', throttle(() => {
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        }, 10));
-    }
-}
-
-// Add floating animation to feature icons
+// Floating Animation for Feature Icons
 function initFloatingIcons() {
     const icons = document.querySelectorAll('.feature-icon');
     
     icons.forEach((icon, index) => {
-        icon.style.animation = `float ${3 + index * 0.5}s ease-in-out infinite`;
-        icon.style.animationDelay = `${index * 0.2}s`;
+        icon.style.animation = `float ${4 + index * 0.5}s ease-in-out infinite`;
+        icon.style.animationDelay = `${index * 0.3}s`;
+        
+        // Add hover effect
+        icon.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.2) rotate(10deg)';
+            this.style.filter = 'brightness(1.2)';
+        });
+        
+        icon.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) rotate(0deg)';
+            this.style.filter = 'brightness(1)';
+        });
     });
 }
 
-// Add ripple effect to buttons and clickable elements
+// Ripple Effect for Interactive Elements
 function initRippleEffect() {
-    const rippleElements = document.querySelectorAll('.btn, .contact-email, .feature-card');
+    const rippleElements = document.querySelectorAll('.contact-email, .feature-card, .countdown-item, .logo-container');
     
     rippleElements.forEach(element => {
         element.addEventListener('click', function(e) {
@@ -334,12 +304,13 @@ function initRippleEffect() {
                 border-radius: 50%;
                 transform: scale(0);
                 animation: ripple 0.6s linear;
-                background-color: rgba(255, 255, 255, 0.3);
+                background-color: rgba(37, 99, 235, 0.3);
                 width: ${size}px;
                 height: ${size}px;
                 left: ${x}px;
                 top: ${y}px;
                 pointer-events: none;
+                z-index: 1000;
             `;
             
             this.style.position = 'relative';
@@ -347,32 +318,120 @@ function initRippleEffect() {
             this.appendChild(ripple);
             
             setTimeout(() => {
-                ripple.remove();
+                if (ripple.parentNode) {
+                    ripple.remove();
+                }
             }, 600);
         });
     });
     
-    // Add ripple animation keyframes
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
+    // Add ripple animation keyframes if not exists
+    if (!document.getElementById('ripple-styles')) {
+        const style = document.createElement('style');
+        style.id = 'ripple-styles';
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
             }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+// Section Reveal Animation
+function initSectionReveal() {
+    const sections = document.querySelectorAll('section');
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('section-revealed');
+                
+                // Trigger any child animations
+                const childElements = entry.target.querySelectorAll('.fade-in-up, .fade-in');
+                childElements.forEach((child, index) => {
+                    setTimeout(() => {
+                        child.style.animationPlayState = 'running';
+                    }, index * 100);
+                });
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+    
+    sections.forEach(section => {
+        revealObserver.observe(section);
+    });
+}
+
+// Performance optimization - throttle function
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
         }
-    `;
-    document.head.appendChild(style);
+    }
+}
+
+// Countdown Enhancement
+function enhanceCountdown() {
+    const countdownItems = document.querySelectorAll('.countdown-item');
+    
+    countdownItems.forEach((item, index) => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.1) rotate(2deg)';
+            this.style.boxShadow = '0 20px 40px rgba(37, 99, 235, 0.2)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) rotate(0deg)';
+            this.style.boxShadow = '0 10px 30px rgba(30, 41, 59, 0.1)';
+        });
+    });
+}
+
+// Logo Loading Animation
+function initLogoLoadAnimation() {
+    const logo = document.querySelector('.tekits-logo');
+    const logoContainer = document.querySelector('.logo-container');
+    
+    if (logo && logoContainer) {
+        logo.addEventListener('load', function() {
+            this.style.opacity = '1';
+            this.style.transform = 'scale(1)';
+            logoContainer.classList.add('logo-loaded');
+        });
+        
+        // Fallback if image is already loaded
+        if (logo.complete) {
+            logo.style.opacity = '1';
+            logo.style.transform = 'scale(1)';
+            logoContainer.classList.add('logo-loaded');
+        }
+    }
 }
 
 // Initialize additional effects after page load
 window.addEventListener('load', function() {
     setTimeout(() => {
+        initLogoEffects();
         initCardEffects();
         initEmailEffects();
         initFloatingIcons();
         initRippleEffect();
-        // initMouseTrail(); // Uncomment if you want mouse trail effect
+        initSectionReveal();
+        enhanceCountdown();
+        initLogoLoadAnimation();
+        initParallax();
     }, 1500);
 });
 
@@ -384,4 +443,63 @@ window.addEventListener('resize', throttle(() => {
         particlesContainer.innerHTML = '';
         initParticles();
     }
+    
+    // Adjust logo size based on screen size
+    const logo = document.querySelector('.tekits-logo');
+    if (logo) {
+        if (window.innerWidth <= 480) {
+            logo.style.width = '100px';
+            logo.style.height = '100px';
+        } else if (window.innerWidth <= 768) {
+            logo.style.width = '120px';
+            logo.style.height = '120px';
+        } else {
+            logo.style.width = '150px';
+            logo.style.height = '150px';
+        }
+    }
 }, 250));
+
+// Add custom cursor effect for premium feel
+function initCustomCursor() {
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    cursor.style.cssText = `
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        background: rgba(37, 99, 235, 0.6);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transition: transform 0.1s ease;
+        transform: translate(-50%, -50%);
+    `;
+    document.body.appendChild(cursor);
+    
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+    
+    // Hide default cursor on interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .contact-email, .feature-card, .logo-container');
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            cursor.style.background = 'rgba(16, 185, 129, 0.8)';
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            cursor.style.background = 'rgba(37, 99, 235, 0.6)';
+        });
+    });
+}
+
+// Initialize custom cursor on larger screens
+if (window.innerWidth > 768) {
+    window.addEventListener('load', () => {
+        setTimeout(initCustomCursor, 2000);
+    });
+}
