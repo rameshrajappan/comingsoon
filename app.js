@@ -187,7 +187,7 @@ function initLogoEffects() {
     if (logo && logoContainer) {
         // Add enhanced hover effects
         logoContainer.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.1) rotate(5deg)';
+            this.style.transform = 'scale(1.1) rotate(-44deg)';
             this.style.boxShadow = '0 20px 60px rgba(37, 99, 235, 0.4)';
         });
         
@@ -200,7 +200,7 @@ function initLogoEffects() {
         logoContainer.addEventListener('click', function() {
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
-                this.style.transform = 'scale(1.1) rotate(5deg)';
+                this.style.transform = 'scale(1.1) rotate(-44deg)';
             }, 150);
         });
     }
