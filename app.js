@@ -401,14 +401,14 @@ function initLogoLoadAnimation() {
 // Initialize additional effects after page load
 window.addEventListener('load', function() {
     setTimeout(() => {
-        initLogoEffects();
+        //initLogoEffects();
         initCardEffects();
         initEmailEffects();
         initFloatingIcons();
         initRippleEffect();
         initSectionReveal();
         enhanceCountdown();
-        initLogoLoadAnimation();
+        //initLogoLoadAnimation();
         initParallax();
     }, 1500);
 });
@@ -420,22 +420,7 @@ window.addEventListener('resize', throttle(() => {
     if (particlesContainer && window.innerWidth > 768) {
         particlesContainer.innerHTML = '';
         initParticles();
-    }
-    
-    // Adjust logo size based on screen size
-    const logo = document.querySelector('.tekits-logo');
-    if (logo) {
-        if (window.innerWidth <= 480) {
-            logo.style.width = '100px';
-            logo.style.height = '100px';
-        } else if (window.innerWidth <= 768) {
-            logo.style.width = '120px';
-            logo.style.height = '120px';
-        } else {
-            logo.style.width = '150px';
-            logo.style.height = '150px';
-        }
-    }
+    }   
 }, 250));
 
 // Add custom cursor effect for premium feel
