@@ -181,29 +181,7 @@ function initScrollIndicator() {
 
 // Logo Enhancement Effects
 function initLogoEffects() {
-    const logo = document.querySelector('.tekits-logo');
-    const logoContainer = document.querySelector('.logo-container');
-    
-    if (logo && logoContainer) {
-        // Add enhanced hover effects
-        logoContainer.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.1)';
-            this.style.boxShadow = '0 20px 60px rgba(37, 99, 235, 0.4)';
-        });
-        
-        logoContainer.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-            this.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.15)';
-        });
-        
-        // Add click effect
-        logoContainer.addEventListener('click', function() {
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1.1)';
-            }, 150);
-        });
-    }
+  
 }
 
 // Card Hover Effects
