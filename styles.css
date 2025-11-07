@@ -905,7 +905,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 2;
   position: relative;
 }
-
+/*
 .hero-logo {
   margin-bottom: 2rem;
 }
@@ -935,10 +935,10 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0.3;
   animation: rotate 8s linear infinite;
 }
-
+*/
 .tekits-logo {
-  width: 150px;
-  height: 150px;
+  width: 300px;
+  height: auto;
   object-fit: contain;
   border-radius: 50%;
   transition: transform var(--tekits-animation-speed) ease;
