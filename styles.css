@@ -944,10 +944,6 @@ h1, h2, h3, h4, h5, h6 {
   transition: transform var(--tekits-animation-speed) ease;
 }
 
-.tekits-logo:hover {
-  transform: scale(1.05);
-}
-
 .hero-title {
   font-size: 5rem;
   margin-bottom: 1rem;
@@ -1417,8 +1413,8 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .tekits-logo {
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: auto;
   }
   
   .hero-title {
@@ -1463,8 +1459,8 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 480px) {
   .tekits-logo {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: auto;
   }
   
   .hero-title {
@@ -1481,6 +1477,6 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .logo-container {
-    padding: 15px;
+    padding: 5px;
   }
 }
