@@ -90,7 +90,7 @@ function initScrollAnimations() {
 // Countdown Timer
 function initCountdown() {
     // Set target date (30 days from now)
-    const targetDate = new Date("11-01-2025");
+    const targetDate = new Date("12-15-2025");
     //targetDate.setDate(targetDate.getDate() + 30);
     
     const daysEl = document.getElementById('days');
